@@ -1,4 +1,7 @@
 // ignore_for_file: must_be_immutable
+import 'dart:ui';
+
+import 'package:fancy_shimmer_image/fancy_shimmer_image.dart';
 import 'package:flutter/material.dart';
 import '../Constants/constants.dart';
 
@@ -11,19 +14,20 @@ class GameCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(right: 5),
-      decoration: Constants.defaultBoxDecoration,
-      height: 120,
-      width: 150,
+      margin: const EdgeInsets.only(right: 10),
+      height: 100,
+      width: 120,
       child: Stack(
         fit: StackFit.expand,
         children: [
-          ClipRRect( borderRadius: BorderRadius.circular(10),child: Image.network(imageURL, fit: BoxFit.cover)),
+          ClipRRect( borderRadius: BorderRadius.circular(10),child: Opacity(
+            opacity: 0.6,
+            child: FancyShimmerImage(imageUrl: imageURL))),
           Container(
                 color: Colors.transparent,
                 alignment: Alignment.center,
                 child:  Text(text, textAlign: TextAlign.center,
-                style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20),),
+                style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16),),
           ),
         ],
       ),

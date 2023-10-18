@@ -16,8 +16,9 @@ class MyApp extends StatelessWidget {
       title: 'Beneath The Surface',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueAccent),
+        primarySwatch: Colors.blue,
         useMaterial3: true,
+        brightness: Brightness.dark
       ),
       home: const MyHomePage(),
     );

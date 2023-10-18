@@ -1,5 +1,6 @@
 import 'package:beneath_the_surface/explore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/route_manager.dart';
 import 'package:google_fonts/google_fonts.dart';
 class MyHomePage extends StatefulWidget {
@@ -21,6 +22,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Container(
       decoration: const BoxDecoration(
         image: DecorationImage(
+          opacity: 0.2,
           image: AssetImage('assets/background/bg2.jpg'),
           fit: BoxFit.cover,
         )
@@ -35,23 +37,15 @@ class _MyHomePageState extends State<MyHomePage> {
               children: <Widget>[
                 Padding(
                   padding: const EdgeInsets.only(left: 20, right: 20),
-                  child: Text(
-                    'Beneath The Surface',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontFamily: GoogleFonts.lobster().fontFamily,
-                      fontSize: 32,
-                      color: Colors.white
-                    ),
-                  ),
+                  child:  SvgPicture.asset("assets/logo.svg", width: 250),
+                    
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(left:20, right: 20),
+                const Padding(
+                  padding:  EdgeInsets.only(left:20, right: 20),
                   child: Text(
                     'Connecting aquatic life with conservation',
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      fontFamily: GoogleFonts.roboto().fontFamily,
                       fontSize: 16,
                       color: Colors.white,
                       fontWeight: FontWeight.w600,
@@ -59,26 +53,12 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ),
                 const SizedBox(height: 20,),
-                SizedBox(
-                  height: 50,
-                  width: 170,
-                  child: ElevatedButton(
-                    onPressed: goToHomePage, 
-                    child: const Text("Start Exploration")
-                  ),
+                ElevatedButton(
+                  onPressed: goToHomePage, 
+                  child: const Text("Start Exploration", style: TextStyle(color: Colors.white),)
                 ),
                 const SizedBox(height: 10,),
-                SizedBox(
-                  height: 50,
-                  width: 170,
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.black,
-                    ),
-                    onPressed: goToHomePage, 
-                    child: const Text("See Water Map", style: TextStyle(color: Colors.white),)
-                  ),
-                )
+               
 
               ],
             ),
